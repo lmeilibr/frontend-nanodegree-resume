@@ -23,7 +23,7 @@ var bio = {
     "learning new skills"
   ],
   "biopic":"images/lmeilibr.jpeg"
-}
+};
 
 var education = {
   "schools": [
@@ -69,7 +69,7 @@ var education = {
       "url": "https://s3.amazonaws.com/verify.edx.org/downloads/b7e6a850aaa24eac919902fb5846febc/Certificate.pdf"
     }
   ]
-}
+};
 
 var work = {
   "jobs": [
@@ -123,7 +123,7 @@ var work = {
       "description": "Digital midia projects, including 3D Modeling and video editing"
     }
   ]
-}
+};
 
 var projects = {
   "projects": [
@@ -137,7 +137,7 @@ var projects = {
       ]
     }
   ]
-}
+};
 
 
 
@@ -196,7 +196,7 @@ work.display = function(){
 
 education.display = function(){
   // loop for schools
-  for (var i = 0; i < education.schools.length; i++) {
+  for (i = 0; i < education.schools.length; i++) {
     // create div for schools
     $("#education").append(HTMLschoolStart);
     // Concat name and degree
@@ -218,7 +218,7 @@ education.display = function(){
   // loop for online Courses
   $("#education").append(HTMLonlineClasses);
 
-  for (var i = 0; i < education.onlineCourses.length; i++) {
+  for (i = 0; i < education.onlineCourses.length; i++) {
     $("#education").append(HTMLschoolStart);
     //contat title and school
     var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
@@ -226,13 +226,13 @@ education.display = function(){
     var formattedTitleSchool = formattedTitle + formattedSchool;
     $(".education-entry:last").append(formattedTitleSchool);
 
-    var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
-    $(".education-entry:last").append(formattedDates);
+    var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates);
+    $(".education-entry:last").append(formattedOnlineDates);
 
     var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
     $(".education-entry:last").append(formattedURL);
-  };
-}
+  }
+};
 
 projects.display = function() {
   for (var i = 0; i < projects.projects.length; i++) {
@@ -249,9 +249,9 @@ projects.display = function() {
     for(var j = 0; j < projects.projects[i].images.length; j ++){
     var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[i].images[j]);
     $(".project-entry").append(formattedImage);
-    };
-  };
-}
+    }
+  }
+};
 
 
 //////////////////
