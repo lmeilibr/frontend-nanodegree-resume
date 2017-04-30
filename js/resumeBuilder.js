@@ -1,3 +1,12 @@
+// this code is divided in three parts:
+// 1 - var (object creations)
+// 2 - add display functions to objects
+// 3 - call display functions
+
+///////////////////////////
+// 1 - Object creations //
+//////////////////////////
+
 var bio = {
   "name": "Leandro",
   "role": "Data Scientist",
@@ -119,37 +128,35 @@ var work = {
 var projects = {
   "projects": [
     {
-      "title": "Inland navigation studies",
+      "title": "Vessels",
       "dates": "2013",
-      "description": "Waterway feasibilities studies for the Brazilian southeast-region",
+      "description": "Waterway vessels for Amazon rivers",
       "images":[
-        "http://gelehrter.net/wp_gelehrter/wp-content/uploads/2015/09/proj2.png",
-        "http://gelehrter.net/wp_gelehrter/wp-content/uploads/2015/09/proj3.png"
+        "http://www.netunoeng.com.br/ohs/data/images/4/DONA_EMLIA_I___Lancha.jpg",
+        "http://www.netunoeng.com.br/ohs/data/images/4/Projeto_de_Deus___Expresso.jpg"
       ]
     }
   ]
 }
 
 
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
 
-var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+//////////////////////////////
+// display functions declarations ///
+/////////////////////////////
 
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
-var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+bio.display = function(){
+  var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+  var formattedName = HTMLheaderName.replace("%data%", bio.name);
 
-displayBio();
-displayWork();
-displayProjects();
-displayEducation();
+  var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+  var formattedGitHub = HTMLgithub.replace("%data%", bio.contacts.github);
+  var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
 
-$("#mapDiv").append(googleMap);
+  var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
+  var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-function displayBio(){
   $("#header").append(formattedName);
   $("#header").append(formattedRole);
 
@@ -169,7 +176,7 @@ function displayBio(){
   }
 };
 
-function displayWork(){
+work.display = function(){
   for (var i = 0; i < work.jobs.length; i++) {
     // create a new div for work experience
     $("#workExperience").append(HTMLworkStart);
@@ -187,7 +194,7 @@ function displayWork(){
   }
 };
 
-function displayEducation(){
+education.display = function(){
   // loop for schools
   for (var i = 0; i < education.schools.length; i++) {
     // create div for schools
@@ -227,7 +234,7 @@ function displayEducation(){
   };
 }
 
-function displayProjects() {
+projects.display = function() {
   for (var i = 0; i < projects.projects.length; i++) {
     $("#projects").append(HTMLprojectStart);
     // concat title and dates
@@ -245,3 +252,14 @@ function displayProjects() {
     };
   };
 }
+
+
+//////////////////
+//call functions//
+/////////////////
+bio.display();
+work.display();
+projects.display();
+education.display();
+
+$("#mapDiv").append(googleMap);

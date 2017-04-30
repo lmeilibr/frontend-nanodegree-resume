@@ -129,7 +129,7 @@ a {
 
 /* TODO: Replace with image later */
 #header {
-  background-color: #484848;
+  background-color: #124c63;
 }
 
 .flex-box {
@@ -165,10 +165,12 @@ ul {
 
 img {
   padding: 10px;
+  width: 200px;
 }
 
 span {
   padding: 5px;
+  color: #fff;
 }
 
 #lets-connect {
