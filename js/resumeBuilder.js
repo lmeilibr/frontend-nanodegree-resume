@@ -160,10 +160,14 @@ bio.display = function(){
   $("#header").append(formattedName);
   $("#header").append(formattedRole);
 
-  $("#header").append(formattedMobile);
-  $("#header").append(formattedEmail);
-  $("#header").append(formattedGitHub);
-  $("#header").append(formattedLocation);
+  $("#topContacts").append(formattedMobile);
+  $("#topContacts").append(formattedEmail);
+  $("#topContacts").append(formattedGitHub);
+  $("#topContacts").append(formattedLocation);
+  $("#footerContacts").append(formattedMobile);
+  $("#footerContacts").append(formattedEmail);
+  $("#footerContacts").append(formattedGitHub);
+  $("#footerContacts").append(formattedLocation);
 
   $("#header").append(formattedBioPic);
   $("#header").append(formattedWelcomeMessage);
